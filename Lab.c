@@ -12,7 +12,7 @@ void generer(SDL_Surface *fenetre, SDL_Surface *labyrinthe, int **carte){
     SDL_Rect posLab, posChargement;
     SDL_Surface *chargement;
 
-    chargement = SDL_LoadBMP("MenuAnim/chargement.bmp");
+    chargement = SDL_LoadBMP(FILE_CHARGEMENT);
     SDL_SetColorKey(chargement, SDL_SRCCOLORKEY, SDL_MapRGB(chargement->format, 255, 255, 255));
     posChargement.x = fenetre->h/2 - chargement->w/2;
     posChargement.y = TAILLE_BLOC * 3;
@@ -221,7 +221,6 @@ void getLab(SDL_Surface *fenetre, int **carte){
 
     carte[arriver.ligne][arriver.colonne] = ARRIVER;
     carte[depart.ligne][depart.colonne] = DEPART;
-
     SDL_FreeSurface(vide);
 }
 
@@ -307,8 +306,8 @@ void cleen(int **carte, SDL_Surface *fenetre){
     SDL_Surface *vide = SDL_CreateRGBSurface(SDL_HWSURFACE, TAILLE_BLOC, TAILLE_BLOC, 32, 0, 0, 0, 0);
     SDL_Surface *arriver, *depart;
     char InsD[50], InsA[50];
-    arriver = SDL_LoadBMP("arriver.bmp");
-    depart = SDL_LoadBMP("depart.bmp");
+    arriver = SDL_LoadBMP(FILE_ARRIVER);
+    depart = SDL_LoadBMP(FILE_DEPART);
     SDL_SetColorKey(depart, SDL_SRCCOLORKEY, SDL_MapRGB(depart->format, 255, 255, 255));
     SDL_FillRect(vide, NULL, SDL_MapRGB(vide->format, 255, 255, 255));
     int ligne = 0, colonne = 0, l2 = 0, col2 = 0;
@@ -336,7 +335,7 @@ void cleen(int **carte, SDL_Surface *fenetre){
 
 void solve(int **carte, SDL_Surface *fenetre){
     SDL_Surface *depart, *surfaceTemp, *lab;
-    depart = SDL_LoadBMP("depart.bmp");
+    depart = SDL_LoadBMP(FILE_DEPART);
     SDL_SetColorKey(depart, SDL_SRCCOLORKEY, SDL_MapRGB(depart->format, 255, 255, 255));
     SDL_Rect pos, posCur, posPrecedent[2];SDL_Event event;
     SDL_Surface *vide = SDL_CreateRGBSurface(SDL_HWSURFACE, TAILLE_BLOC, TAILLE_BLOC, 32, 0, 0, 0, 0);
@@ -471,7 +470,6 @@ void solve(int **carte, SDL_Surface *fenetre){
     SDL_FreeSurface(lab);
     SDL_FreeSurface(trait);
     SDL_FreeSurface(vide);
-
 }
 
 int Win(coordonnee arriver, coordonnee pos){

@@ -12,7 +12,7 @@ int main (int argc, char *argv[]){
     SDL_Event event;SDL_Rect posMenu;
     SDL_Init(SDL_INIT_VIDEO);
     fenetre = SDL_SetVideoMode(TAILLE_BLOC * DIM + 100, TAILLE_BLOC * DIM+100, 32, SDL_HWSURFACE|SDL_DOUBLEBUF);
-    imgMenu = SDL_LoadBMP("MenuAnim/Labyrinthe.bmp");
+    imgMenu = SDL_LoadBMP(FILE_LABYRINTHE);
     posMenu.x = fenetre->w/2 - imgMenu->w/2;
     posMenu.y = fenetre->h/4;
     SDL_FillRect(fenetre, NULL, SDL_MapRGB(fenetre->format, 15, 115, 236));
@@ -61,10 +61,8 @@ int main (int argc, char *argv[]){
         SDL_Flip(fenetre);
     }
 
-    for (i = 0; i < DIM; i++){
-        free(carte[i]);
-    }
-
+    free(carte);   // Libère le tableau de pointeurs
+    free(carte2);
     SDL_Quit();
     return EXIT_SUCCESS;
 }

@@ -13,21 +13,21 @@ void startMenu(SDL_Surface *fenetre){
     SDL_Surface *anim, *playButton;
 
     int continuer = 1, nbrMenu = 0, play = 0;
-    char *filename[15][10];
+    char *filename[15][256];
     int i = 0;
 
     char InsA[50];
     i = 0;
     while (i < 15){
-        sprintf(filename[i], "MenuAnim/Men(%d).bmp", i+1);
+        sprintf(filename[i], "%sMen(%d).bmp", DIR_MENU_ANIM, i+1);
         i++;
     }
 
-    SDL_Surface *play2 = SDL_LoadBMP("MenuAnim/play2.bmp");
-    SDL_Surface *play1 = SDL_LoadBMP("MenuAnim/play.bmp");
+    SDL_Surface *play2 = SDL_LoadBMP(FILE_PLAY2);
+    SDL_Surface *play1 = SDL_LoadBMP(FILE_PLAY);
     SDL_SetColorKey(play1, SDL_SRCCOLORKEY, SDL_MapRGB(play1->format, 255, 255, 255));
     playButton = play1;
-
+    
     anim = SDL_LoadBMP(filename[nbrMenu]);
     posAnim.y = TAILLE_BLOC/2;
     posAnim.x = fenetre->w/2 - anim->w/2;

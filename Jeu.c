@@ -15,14 +15,14 @@ void play(int **carte, SDL_Surface *labyrinthe, SDL_Surface *fenetre){
 
     getDepart(carte, &current);
     getArriver(carte, &arriver);
-    solve1 = SDL_LoadBMP("MenuAnim/solve.bmp");
-    solve2 = SDL_LoadBMP("MenuAnim/solve2.bmp");
+    solve1 = SDL_LoadBMP(FILE_SOLVE);
+    solve2 = SDL_LoadBMP(FILE_SOLVE2);
     SDL_SetColorKey(solve1, SDL_SRCCOLORKEY, SDL_MapRGB(solve1->format, 255, 255, 255));
-    depart = SDL_LoadBMP("depart.bmp");
+    depart = SDL_LoadBMP(FILE_DEPART);
     SDL_SetColorKey(depart, SDL_SRCCOLORKEY, SDL_MapRGB(depart->format, 255, 255, 255));
     vide = SDL_CreateRGBSurface(SDL_HWSURFACE, TAILLE_BLOC, TAILLE_BLOC, 32, 0, 0, 0, 0);
     SDL_FillRect(vide, NULL, SDL_MapRGB(vide->format, 255, 255, 255));
-    win = SDL_LoadBMP("MenuAnim/Gagne.bmp");
+    win = SDL_LoadBMP(FILE_GAGNE);
     ligne = current.ligne;
     colonne = current.colonne;
     getRealPos(&ligne, &colonne);
