@@ -39,8 +39,8 @@ void play(int **carte, SDL_Surface *labyrinthe, SDL_Surface *fenetre){
     SDL_BlitSurface(labyrinthe, NULL, fenetre, &posLab);
 
     solveImg = solve1;
-    posSolve.x = fenetre->w/2 - solveImg->w/2;
-    posSolve.y = labyrinthe->h + solveImg->h;
+    posSolve.x = 0;
+    posSolve.y = fenetre->h/2 - solveImg->h/2;
     SDL_BlitSurface(solveImg, NULL, fenetre, &posSolve);
 
     SDL_Flip(fenetre);

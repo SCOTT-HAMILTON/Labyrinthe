@@ -13,7 +13,7 @@ enum {NORD, EST, SUD, OUEST};
 #define ARRIVER 6
 #define PONT 7
 
-#define DIM 23
+#define DIM 19
 
 
 #define TAILLE_BLOC 30
